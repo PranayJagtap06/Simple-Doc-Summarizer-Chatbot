@@ -1,10 +1,10 @@
-# Document Research & Theme Identification Chatbot Documentation
+# Document Research & Summarizer Chatbot Documentation
 ----
 
 ## Table of Contents
 ----
 
-- [Document Research \& Theme Identification Chatbot Documentation](#document-research--theme-identification-chatbot-documentation)
+- [Document Research \& Summarizer Chatbot Documentation](#document-research--theme-identification-chatbot-documentation)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Features](#features)
@@ -36,7 +36,7 @@
 
 ## Overview
 ----
-The Document Research & Theme Identification Chatbot is an AI-powered application that processes multiple documents, extracts information, and identifies themes across documents. It uses advanced NLP techniques to understand document content and provide intelligent responses to user queries. Basically, utilizes ***Google Gemini LLM*** under the hood.
+The Document Research & Summarizer Chatbot is an AI-powered application that processes multiple documents, extracts information, and identifies themes across documents. It uses advanced NLP techniques to understand document content and provide intelligent responses to user queries. Basically, utilizes ***Google Gemini LLM*** under the hood.
 
 ## Features
 ----
@@ -101,7 +101,7 @@ source venv/bin/activate  # Linux/MacOS
 venv\Scripts\activate     # Windows
 
 # Install Python dependencies
-pip install -r chatbot-theme-identifier/requirements.txt
+pip install -r requirements.txt
 ```
 
 ### 3. Environment Configuration
@@ -116,7 +116,7 @@ Or `export GEMINI_API_KEY=your_api_key_here` --for Linux/MacOS
 ## Project Structure
 ----
 ```
-chatbot_theme_identifier/
+Simple-Doc-Summarizer-Chatbot/
 ├── backend/
 │   ├── app/
 │   │   ├── api/          # FastAPI App/endpoints
@@ -258,10 +258,6 @@ pytest -v
    - Reduce batch size
    - Limit concurrent uploads
    - Clear vector store cache
-
-<!-- ### Logs
-- Backend logs: `backend/logs/app.log`
-- Streamlit logs: `~/.streamlit/logs/` -->
 
 ## Performance Optimization
 1. Use batch processing for multiple documents

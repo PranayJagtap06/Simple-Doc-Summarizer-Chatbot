@@ -1,4 +1,4 @@
-# Document Research & Theme Identification Chatbot
+# Document Research & Summarizer Chatbot
 ----
 
 This project is an GEMINI AI-powered chatbot that can process multiple documents, answer questions about their content, and identify common themes across documents.
@@ -41,9 +41,9 @@ This project is an GEMINI AI-powered chatbot that can process multiple documents
 
 ## Limitations
 ----
-- Maximum document upload size: 100MB
+- Maximum document upload size: 2GB per document
 - Supported file types: PDF, TXT, PNG, JPG, JPEG
-- Maximum number of documents: 100
+- Maximum number of documents: 75+ (100 max) 
 - OCR accuracy may vary based on image quality
 - Response time may vary based on document size and number of documents
 - Does not support persistent chat history across sessions
