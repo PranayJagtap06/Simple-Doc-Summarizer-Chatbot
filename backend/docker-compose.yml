@@ -1,0 +1,83 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: chatbot-theme-identifier-api:latest
+    container_name: chatbot-api
+    develop:
+      watch:
+        # - action: sync
+        #   path: .
+        #   target: .
+        - action: sync
+          path: ./app/main.py
+          target: /app
+        - action: sync
+          path: ./app/api/routers
+          target: /api/routers
+        - action: sync
+          path: ./app/core
+          target: /core
+        - action: sync
+          path: ./app/models
+          target: /models
+        - action: sync
+          path: ./app/services
+          target: /services
+    networks:
+      - app-network
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - CHROMA_SERVER_HTTP_TIMEOUT=300
+      - COMPOSE_HTTP_TIMEOUT=300
+      # - API_URL=http://localhost:8000/api/v1
+      # - STREAMLIT_SERVER_MAX_UPLOAD_SIZE=2000
+      # - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+    volumes:
+      - ./data:/backend/data:rw
+      # - ./.streamlit:/.streamlit:rw
+    # user: "1000:1000"  # Use non-root user
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    image: chatbot-theme-identifier-webapp:latest
+    container_name: chatbot-webapp
+    networks:
+      - app-network
+    develop:
+      watch:
+        - action: sync
+          path: ./main.py
+          target: /backend/main.py
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000/api/v1
+      - STREAMLIT_SERVER_MAX_UPLOAD_SIZE=2000
+      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+    volumes:
+      - ./data:/backend/data:rw
+      - ./.streamlit:/.streamlit:rw
+    # user: "1000:1000"  # Use non-root user
+    depends_on:
+      - api
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
+
+# secrets:
+#   GEMINI_API_KEY:
+#     file: .env

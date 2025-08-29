@@ -1,0 +1,16 @@
+This is a test document for the chatbot.
+    
+    This is a sample text document that demonstrates the chatbot's ability to process
+    plain text files. It contains multiple paragraphs and discusses various topics
+    that can be analyzed for themes.
+    
+    The chatbot should be able to:
+    1. Extract this text
+    2. Process it into meaningful chunks
+    3. Index it for searching
+    4. Use it to answer questions
+    5. Identify themes across multiple documents
+    
+    This sample document can be used alongside PDF files to demonstrate
+    the system's ability to work with multiple file formats and find
+    common themes across different document types.

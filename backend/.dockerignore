@@ -1,0 +1,16 @@
+.env
+*.env
+.env.*
+__pycache__
+*.pyc
+*data/
+.vscode/
+.idea/
+*demo/
+*docs/
+*tests/
+*.pdf
+.pdf
+.md
+*.md
+
