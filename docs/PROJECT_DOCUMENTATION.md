@@ -34,7 +34,7 @@
   - [Security Considerations](#security-considerations)
   - [Support](#support)
 
-## Overview
+## overview
 ----
 The Document Research & Summarizer Chatbot is an AI-powered application that processes multiple documents, extracts information, and identifies themes across documents. It uses advanced NLP techniques to understand document content and provide intelligent responses to user queries. Basically, utilizes ***Google Gemini LLM*** under the hood.
 
